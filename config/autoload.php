@@ -1,4 +1,11 @@
 <?php
+/**
+* Función que me permite realizar carga automática de archivos usando
+* solo el nombre de la clase
+*
+* @param callback Función anónima que recibe la clase a cargar
+*
+*/
 
 spl_autoload_register(function ($nombre_clase) {
 	$file = lcfirst($nombre_clase).'.php';

@@ -14,11 +14,19 @@ class UserController extends Controller{
 		$this->view('index',$data);
 	}
 
-	public function hola($arg=null){
+	public function hola(){
 		$data = array(
 			'nombre' => 'Jose',
 			'apellidos' => 'Carranza Gonzales'
 		);
 		$this->view('hola',$data);
+	}
+
+	public function edit($id=null){
+		if($id != null){
+			echo $id;
+		}else{
+			die('Debe ingresar un id');
+		}
 	}
 }

@@ -1,11 +1,40 @@
 <?php
+
+/**
+* Clase Model
+* Clase base para los Modelos que definiremos en la carpeta models
+*/
 abstract class Model{
 
+	/**
+	* Atributo private que contendrá la conexion a la base de datos
+	* @var object
+	*/
 	private $cnn;
+
+	/**
+	* Atributo private que contendrá la cadena de conexion a la base de datos
+	* @var string
+	*/
 	private $dsn;
+
+	/**
+	* Atributo private que contendrá el usuario de la base de datos
+	* @var string
+	*/
 	private $username;
+
+	/**
+	* Atributo private que contendrá la contraseña de la base de datos
+	* @var string
+	*/
 	private $password;
 
+
+	/**
+	* Función Contructora
+	* @param string $dbConfig Nombre del archivo que contiene los datos de conexión
+	*/
 	function __construct($dbConfig){
 		$this->configConnection($dbConfig);
 		try{
@@ -17,6 +46,10 @@ abstract class Model{
 		}
 	}
 
+	/**
+	* Funcion que nos permite obtener los datos de conexión desde un archivo
+	* @param string $dbConfig Nombre del archivo que contiene los datos de conexión
+	*/
 	function configConnection($dbConfig){
 		$file = DIR_CONFIG.$dbConfig;
 		if(file_exists($file) && is_readable($file)){

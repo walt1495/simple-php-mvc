@@ -1,2 +1,4 @@
 <?php
-
+/*
+* Funciones de ayuda
+*/
